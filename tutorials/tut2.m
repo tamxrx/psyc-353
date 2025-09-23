@@ -26,7 +26,7 @@ set(gca, 'ylim', [0 n], 'Color', [0 0 0])
 hold on
 
 for i = 1:n
-    plot([i 0], [n i], 'LineWidth', 2, 'Color', 'green')
+    plot([i 0], [n n], 'LineWidth', 2, 'Color', 'green')
     pause(1)
 end
 
