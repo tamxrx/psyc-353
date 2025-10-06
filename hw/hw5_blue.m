@@ -9,7 +9,9 @@ n_reps = 5; % repetitions of each contrast
 baseline = .4; % baseline brightness
 rf_contr = .1; % reference contrast (10%)
 
-bg_tone = repmat(baseline, 1, 3); % background brightness in RGB
+%bg_tone = repmat(baseline, 1, 3); % background brightness in RGB
+
+bg_tone= [.2 .3 .4];
 rf_tone = bg_tone + baseline * rf_contr; % compute reference tone (baseline + 10% of baseline) in RGB
 
 % contrast definition: the difference between the brightness of the object and the background against which it is viewed, divided by the background brightness.
@@ -46,8 +48,8 @@ right = plot( 1, 0, 'o', 'MarkerSize', 150, 'MarkerEdgeColor', 'none', 'MarkerFa
 for trial = 1:length(trials)
         
     % remember: stimulus = background + contrast * background
-    targ_shade = baseline + trials_rnd(trial) * baseline; % create target contrast
-    targ_tone  = repmat(targ_shade, 1, 3);                % turn into RGB
+    targ_shade = bg_tone + trials_rnd(trial) * baseline; % create target contrast
+    targ_tone  = targ_shade  ;           % turn into RGB
     
     % reference always left
     set(left, 'MarkerFaceColor', rf_tone)         % left is reference
@@ -164,8 +166,9 @@ xlim([min(contr_diff) max(contr_diff)])
 ylim([0 1])
 
 set(gca, 'FontSize', 16)
-title('Palamedes Fit')
-savefig ('palamedes_original_img')
+title('Palamedes blue Fit')
+savefig ('blue_circles_img')
 
 % display parameters for the PF
 
+%%
